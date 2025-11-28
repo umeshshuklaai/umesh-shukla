@@ -1,9 +1,1091 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My GitHub Site</title>
-  </head>
-  <body>
-    <h1>Hello! My site  Umesh shukla AI is now active.</h1>
-  </body>
-</html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1"
+  />
+  <title>Umesh Shukla | AI & Cloud Courses</title>
+  <meta
+    name="description"
+    content="Learn AI, Google Cloud, Java and Python with practical, project-focused courses by Umesh Shukla."
+  />
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #080c1f;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.12);
+      --accent-2: #22c55e;
+      --text: #f9fafb;
+      --text-soft: #9ca3af;
+      --border-soft: rgba(148, 163, 184, 0.3);
+      --card-bg: rgba(15, 23, 42, 0.9);
+      --radius-xl: 18px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 22px 45px rgba(15, 23, 42, 0.7);
+      --shadow-soft-sm: 0 14px 30px rgba(15, 23, 42, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1120 0, #020617 55%, #000 100%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Top navigation */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(2, 6, 23, 0.9),
+        rgba(2, 6, 23, 0.7),
+        transparent
+      );
+      border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 0, #ffffff 0, #4f46e5 35%, #0f172a 100%);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.35);
+    }
+
+    .brand-name {
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.3rem;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      border-radius: 999px;
+      transition: width 0.22s ease-out;
+    }
+
+    .nav-links a:hover {
+      color: #e5e7eb;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.35rem 0.9rem;
+        border-radius: 999px;
+        font-size: 0.75rem;
+        border: 1px solid rgba(148, 163, 184, 0.55);
+        color: #e5e7eb;
+        background: radial-gradient(circle at top left, #0b1120, #020617);
+      }
+      .nav-cta span {
+        font-size: 0.85rem;
+      }
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 3.5rem 0 2.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        padding: 4.5rem 0 3.5rem;
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 2.5rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+        align-items: center;
+      }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.15rem 0.65rem 0.15rem 0.2rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: radial-gradient(circle at top left, #0b1120, #020617);
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      margin-bottom: 1rem;
+    }
+
+    .pill-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: conic-gradient(from 160deg, #22c55e, #0ea5e9, #4f46e5, #22c55e);
+      padding: 2px;
+    }
+
+    .pill-dot-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      background: #020617;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin: 0 0 0.9rem;
+    }
+
+    .hero-title span.gradient {
+      background: linear-gradient(120deg, #38bdf8, #a855f7, #22c55e);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 1.6rem;
+      color: var(--text-soft);
+      font-size: 0.98rem;
+      max-width: 34rem;
+    }
+
+    .hero-subtitle strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn-primary {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      border-radius: var(--radius-pill);
+      padding: 0.7rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: linear-gradient(120deg, #4f46e5, #22c55e);
+      color: #e5e7eb;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-outline {
+      border-radius: var(--radius-pill);
+      padding: 0.7rem 1.2rem;
+      font-size: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: radial-gradient(circle at top left, #020617, #020617);
+      color: var(--text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    .hero-meta-item span.key {
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    /* Hero visual */
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top, #020617, #020617);
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 1.6rem 1.4rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(56, 189, 248, 0.13), transparent 50%),
+        radial-gradient(circle at 100% 0, rgba(129, 140, 248, 0.16), transparent 55%),
+        radial-gradient(circle at 50% 120%, rgba(16, 185, 129, 0.16), transparent 55%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .hero-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .hero-tagline {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .hero-badge {
+      padding: 0.25rem 0.55rem;
+      font-size: 0.7rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+    }
+
+    .hero-card-title {
+      font-size: 1.05rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .chip {
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #e5e7eb;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.65rem;
+      font-size: 0.75rem;
+    }
+
+    .mini-card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 14px;
+      padding: 0.6rem 0.7rem;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .mini-card-label {
+      color: var(--text-soft);
+      margin-bottom: 0.15rem;
+    }
+
+    .mini-card-value {
+      font-size: 0.78rem;
+    }
+
+    .hero-float-pill {
+      position: absolute;
+      right: -12px;
+      top: -14px;
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid rgba(129, 140, 248, 0.7);
+      font-size: 0.75rem;
+      color: #dbeafe;
+      backdrop-filter: blur(10px);
+    }
+
+    @media (max-width: 899px) {
+      .hero-card {
+        max-width: 420px;
+        margin: 0 auto;
+      }
+    }
+
+    /* Sections */
+
+    section {
+      padding: 2.5rem 0;
+    }
+
+    section:nth-of-type(odd) {
+      background: radial-gradient(circle at top, #020617, #000000);
+    }
+
+    .section-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #9ca3af;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin: 0;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      max-width: 32rem;
+    }
+
+    /* Course cards */
+
+    .course-grid {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    @media (min-width: 768px) {
+      .course-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .course-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 1.3rem 1.3rem 1.1rem;
+      box-shadow: var(--shadow-soft-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .course-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(79, 70, 229, 0.18), transparent 50%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .course-card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .course-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #a5b4fc;
+      margin-bottom: 0.45rem;
+    }
+
+    .course-title {
+      margin: 0 0 0.4rem;
+      font-size: 1.05rem;
+    }
+
+    .course-meta {
+      font-size: 0.78rem;
+      color: var(--text-soft);
+      margin-bottom: 0.75rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .course-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .course-meta-badge {
+      padding: 0.1rem 0.55rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 0.72rem;
+      color: #e5e7eb;
+    }
+
+    .course-desc {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+      margin-bottom: 0.8rem;
+    }
+
+    .course-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: var(--radius-pill);
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(75, 85, 99, 0.8);
+      color: #e5e7eb;
+    }
+
+    .course-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .course-cta a {
+      font-size: 0.8rem;
+      color: #a5b4fc;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    .course-cta a span.arrow {
+      font-size: 0.85rem;
+    }
+
+    /* Path section */
+
+    .path-grid {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    @media (min-width: 900px) {
+      .path-grid {
+        grid-template-columns: 1.7fr 2fr;
+        align-items: flex-start;
+      }
+    }
+
+    .path-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 1.2rem 1.3rem;
+    }
+
+    .path-card h3 {
+      margin-top: 0;
+      margin-bottom: 0.7rem;
+      font-size: 1.05rem;
+    }
+
+    .path-card p {
+      font-size: 0.86rem;
+      color: var(--text-soft);
+      margin-top: 0;
+      margin-bottom: 0.9rem;
+    }
+
+    .path-steps {
+      display: grid;
+      gap: 0.75rem;
+      font-size: 0.82rem;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 26px 1fr;
+      gap: 0.6rem;
+    }
+
+    .step-badge {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .step-title {
+      font-weight: 500;
+      margin-bottom: 0.1rem;
+    }
+
+    .step-desc {
+      color: var(--text-soft);
+    }
+
+    .path-highlight {
+      display: grid;
+      gap: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .path-highlight strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    /* Contact */
+
+    .contact-inner {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 1.6rem 1.5rem;
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    @media (min-width: 768px) {
+      .contact-inner {
+        grid-template-columns: 2fr 2fr;
+        align-items: center;
+      }
+    }
+
+    .contact-inner h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    .contact-inner p {
+      margin: 0;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    .contact-list {
+      font-size: 0.85rem;
+      display: grid;
+      gap: 0.35rem;
+      color: var(--text-soft);
+    }
+
+    .contact-list a {
+      color: #a5b4fc;
+    }
+
+    .contact-list-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #6b7280;
+      margin-bottom: 0.3rem;
+    }
+
+    /* Footer */
+
+    footer {
+      padding: 1.5rem 0 2rem;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .footer-links a {
+      color: var(--text-soft);
+    }
+
+    /* Small screen nav simplification */
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- NAVBAR -->
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="brand-logo"></div>
+          <div class="brand-name">Umesh Shukla</div>
+        </div>
+        <nav class="nav-links">
+          <a href="#courses">Courses</a>
+          <a href="#paths">Learning Paths</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="nav-cta">
+          <span>Let’s talk</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <main>
+      <section class="hero" id="top">
+        <div class="container hero-grid">
+          <div>
+            <div class="pill">
+              <div class="pill-dot">
+                <div class="pill-dot-inner"></div>
+              </div>
+              <span>Practical AI & Cloud learning for working professionals</span>
+            </div>
+            <h1 class="hero-title">
+              Learn <span class="gradient">AI, Google&nbsp;Cloud & Modern Dev</span>
+              with real-world projects.
+            </h1>
+            <p class="hero-subtitle">
+              I’m <strong>Umesh Shukla</strong> – helping engineers and students build
+              strong foundations in <strong>Artificial Intelligence, Google Cloud</strong>,
+              and <strong>Java/Python</strong> so they can confidently ship
+              production-grade systems, not just toy demos.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#courses" class="btn-primary">
+                View all courses
+                <span>→</span>
+              </a>
+              <a href="#contact" class="btn-outline">
+                Get course guidance
+                <span>💬</span>
+              </a>
+            </div>
+
+            <div class="hero-meta">
+              <div class="hero-meta-item">
+                <span class="key">Focus:</span>
+                <span>Hands-on labs, code-first learning</span>
+              </div>
+              <div class="hero-meta-item">
+                <span class="key">Tracks:</span>
+                <span>AI · Google Cloud · Java · Python</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="hero-card">
+              <div class="hero-card-inner">
+                <div class="hero-card-header">
+                  <div>
+                    <div class="hero-tagline">Your Tech Upgrade Dashboard</div>
+                    <div class="hero-card-title">Skill Snapshot</div>
+                  </div>
+                  <div class="hero-badge">Live & self-paced</div>
+                </div>
+
+                <div class="hero-stack">
+                  <span class="chip">AI & ML</span>
+                  <span class="chip">Google Cloud</span>
+                  <span class="chip">Java Backend</span>
+                  <span class="chip">Python for Data</span>
+                </div>
+
+                <div class="mini-grid">
+                  <div class="mini-card">
+                    <div class="mini-card-label">AI Foundations</div>
+                    <div class="mini-card-value">From basic math to real models.</div>
+                  </div>
+                  <div class="mini-card">
+                    <div class="mini-card-label">Cloud Architecting</div>
+                    <div class="mini-card-value">Design and deploy on GCP.</div>
+                  </div>
+                  <div class="mini-card">
+                    <div class="mini-card-label">Backend Skills</div>
+                    <div class="mini-card-value">Java essentials for services.</div>
+                  </div>
+                  <div class="mini-card">
+                    <div class="mini-card-label">Python Workflows</div>
+                    <div class="mini-card-value">Scripts, APIs, and data tools.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="hero-float-pill">
+                Next batch: You decide the pace 🚀
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COURSES -->
+      <section id="courses">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Courses</div>
+            <h2 class="section-title">Learn what matters, in the right order.</h2>
+            <p class="section-subtitle">
+              Every course is designed to be <strong>practical, project-oriented, and
+              beginner-friendly</strong> – with a clear roadmap so you always know what
+              to do next.
+            </p>
+          </div>
+
+          <div class="course-grid">
+            <!-- AI COURSE -->
+            <article class="course-card">
+              <div class="course-card-inner">
+                <div class="course-label">Artificial Intelligence</div>
+                <h3 class="course-title">AI Foundations & Applied Machine Learning</h3>
+                <div class="course-meta">
+                  <span>⏱ 10–12 weeks</span>
+                  <span>📚 Level: Beginner → Intermediate</span>
+                </div>
+                <div class="course-meta-badge">Build your first ML portfolio</div>
+                <p class="course-desc">
+                  Learn core AI concepts, ML algorithms, and modern workflows.
+                  We start from the basics and move towards real-world projects:
+                  prediction models, classification, and simple recommendation systems.
+                </p>
+                <div class="course-tags">
+                  <span class="tag">Supervised & Unsupervised ML</span>
+                  <span class="tag">Model evaluation</span>
+                  <span class="tag">Data preprocessing</span>
+                  <span class="tag">End-to-end project</span>
+                </div>
+                <div class="course-cta">
+                  <span>Best for: learners who want to understand AI from scratch.</span>
+                  <a href="#contact">
+                    Get AI course details <span class="arrow">↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- GOOGLE CLOUD COURSE -->
+            <article class="course-card">
+              <div class="course-card-inner">
+                <div class="course-label">Google Cloud</div>
+                <h3 class="course-title">Google Cloud Engineer & Architect Path</h3>
+                <div class="course-meta">
+                  <span>⏱ 8–10 weeks</span>
+                  <span>📚 Level: Beginner → Associate</span>
+                </div>
+                <div class="course-meta-badge">
+                  Designed around real-world GCP use-cases
+                </div>
+                <p class="course-desc">
+                  Learn how to deploy applications, manage services, and design
+                  scalable architectures on Google Cloud. We focus on hands-on labs with
+                  Compute Engine, Cloud Run, storage, IAM, networking, and basic DevOps.
+                </p>
+                <div class="course-tags">
+                  <span class="tag">GCP fundamentals</span>
+                  <span class="tag">IAM & networking</span>
+                  <span class="tag">Deploying apps</span>
+                  <span class="tag">Monitoring & logging</span>
+                </div>
+                <div class="course-cta">
+                  <span>Best for: devs who want cloud skills on their resume.</span>
+                  <a href="#contact">
+                    Get GCP course details <span class="arrow">↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- JAVA COURSE -->
+            <article class="course-card">
+              <div class="course-card-inner">
+                <div class="course-label">Programming · Java</div>
+                <h3 class="course-title">Modern Java for Backend Development</h3>
+                <div class="course-meta">
+                  <span>⏱ 8 weeks</span>
+                  <span>📚 Level: Beginner → Job-ready</span>
+                </div>
+                <div class="course-meta-badge">
+                  Focus: clean code & backend building blocks
+                </div>
+                <p class="course-desc">
+                  Start from Java basics and move towards building REST APIs,
+                  working with databases, and structuring maintainable projects. Perfect
+                  for students aiming for backend roles or strong fundamentals.
+                </p>
+                <div class="course-tags">
+                  <span class="tag">Core Java</span>
+                  <span class="tag">OOP & design basics</span>
+                  <span class="tag">REST APIs</span>
+                  <span class="tag">DB integration</span>
+                </div>
+                <div class="course-cta">
+                  <span>Best for: students aiming for backend / enterprise roles.</span>
+                  <a href="#contact">
+                    Get Java course details <span class="arrow">↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- PYTHON COURSE -->
+            <article class="course-card">
+              <div class="course-card-inner">
+                <div class="course-label">Programming · Python</div>
+                <h3 class="course-title">Python for Automation, Data & AI</h3>
+                <div class="course-meta">
+                  <span>⏱ 6–8 weeks</span>
+                  <span>📚 Level: Beginner → Intermediate</span>
+                </div>
+                <div class="course-meta-badge">
+                  Your gateway language for AI & data work
+                </div>
+                <p class="course-desc">
+                  Learn Python from zero with a focus on writing scripts, working with
+                  data, and using popular libraries. By the end, you’ll be ready to
+                  explore data analysis, basic ML, and automation projects.
+                </p>
+                <div class="course-tags">
+                  <span class="tag">Core Python</span>
+                  <span class="tag">Files & APIs</span>
+                  <span class="tag">Data handling</span>
+                  <span class="tag">Automation projects</span>
+                </div>
+                <div class="course-cta">
+                  <span>Best for: anyone new to programming or AI tools.</span>
+                  <a href="#contact">
+                    Get Python course details <span class="arrow">↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- LEARNING PATHS -->
+      <section id="paths">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Learning Paths</div>
+            <h2 class="section-title">
+              Not just random topics – a guided roadmap.
+            </h2>
+            <p class="section-subtitle">
+              Pick the path that matches your current stage. You can always start
+              small and grow into advanced topics.
+            </p>
+          </div>
+
+          <div class="path-grid">
+            <div class="path-card">
+              <h3>Path 1 · AI & Cloud Engineer</h3>
+              <p>
+                Ideal if you want to combine <strong>AI skills with cloud
+                deployment</strong> and become a stronger engineer in modern teams.
+              </p>
+              <div class="path-steps">
+                <div class="step">
+                  <div class="step-badge">1</div>
+                  <div>
+                    <div class="step-title">Python for Automation & Data</div>
+                    <div class="step-desc">
+                      Build comfort with Python, scripts, and working with files/APIs.
+                    </div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-badge">2</div>
+                  <div>
+                    <div class="step-title">AI Foundations & ML</div>
+                    <div class="step-desc">
+                      Learn core ML algorithms and implement small end-to-end projects.
+                    </div>
+                  </div>
+                </div>
+                <div class="step">
+                  <div class="step-badge">3</div>
+                  <div>
+                    <div class="step-title">Google Cloud Engineer</div>
+                    <div class="step-desc">
+                      Deploy your AI and backend services on Google Cloud with proper
+                      IAM, networking, and monitoring.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="path-card">
+              <h3>Path 2 · Strong Developer Foundations</h3>
+              <p>
+                A path for students and early-career developers who want
+                <strong>solid programming fundamentals</strong> first, with a smooth
+                transition into AI or cloud.
+              </p>
+              <div class="path-highlight">
+                <div>
+                  <strong>Step 1 – Java or Python fundamentals</strong><br />
+                  Choose your primary language and get comfortable with syntax,
+                  problem-solving, and basic projects.
+                </div>
+                <div>
+                  <strong>Step 2 – Web / backend basics</strong><br />
+                  Learn how real applications are built: APIs, databases, and simple
+                  architectures.
+                </div>
+                <div>
+                  <strong>Step 3 – AI or Cloud specialization</strong><br />
+                  Once you are confident with code, move into AI Foundations or Google
+                  Cloud Engineer tracks to build specialized skills.
+                </div>
+                <div>
+                  You don’t have to figure this alone. If you’re confused between Java,
+                  Python, AI, or Cloud, reach out – I’ll help you pick the best next
+                  step based on your goals.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT / CALL TO ACTION -->
+      <section id="contact">
+        <div class="container">
+          <div class="contact-inner">
+            <div>
+              <h2>Need help picking the right course?</h2>
+              <p>
+                Share your current background (student, working professional, domain)
+                and what you want to achieve. I’ll suggest a clear starting point and
+                a realistic roadmap.
+              </p>
+            </div>
+            <div>
+              <div class="contact-list-label">Contact</div>
+              <div class="contact-list">
+                <span>Email: <a href="mailto:contact@umeshshukla.com">contact@umeshshukla.com</a></span>
+                <span>GitHub:
