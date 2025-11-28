@@ -8,8 +8,8 @@
 
   <style>
     :root {
-      --bg: #E8F1FF;              
-      --accent: #2563EB;          
+      --bg: #E8F1FF;
+      --accent: #2563EB;
       --text: #0F172A;
       --text-soft: #64748B;
       --border-soft: #D0D7E2;
@@ -39,12 +39,12 @@
       padding: 0 1.5rem;
     }
 
-    /* ---------- HEADER ---------- */
+    /* HEADER */
     header {
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(232, 241, 255, 0.9);
+      background: rgba(232, 241, 255, 0.94);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid #cbd5e1;
     }
@@ -56,110 +56,189 @@
       align-items: center;
     }
 
-    .brand { display: flex; gap: 0.5rem; align-items: center; }
+    .brand {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
     .brand-logo {
-      width: 34px; height: 34px; border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
       background: linear-gradient(135deg, #2563EB, #16A34A);
     }
+
     .brand-name {
-      font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
     }
 
     .nav-links {
-      display: flex; gap: 1.2rem;
-      font-size: 0.9rem; color: var(--text-soft);
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+      color: var(--text-soft);
     }
 
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover {
+      color: var(--accent);
+    }
 
-    @media(max-width: 640px) {
+    @media (max-width: 640px) {
       .nav-links { display: none; }
     }
 
-    /* ---------- HERO ---------- */
-    .hero { padding: 3rem 0 2rem; }
-    .hero-grid { display: grid; gap: 2rem; }
-    @media(min-width: 900px) {
+    /* HERO */
+    .hero {
+      padding: 3rem 0 2rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 900px) {
       .hero-grid {
         grid-template-columns: 3fr 2fr;
         align-items: center;
       }
     }
 
-    h1.hero-title {
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
+    .hero-title {
+      font-size: clamp(2rem, 3.4vw, 2.8rem);
       margin: 0 0 0.5rem;
       color: #0F172A;
     }
-    .hero-title span { color: var(--accent); }
+
+    .hero-title span {
+      color: var(--accent);
+    }
 
     .hero-subtitle {
-      color: var(--text-soft); font-size: 1rem;
-      max-width: 32rem; margin-bottom: 1.3rem;
+      color: var(--text-soft);
+      font-size: 1rem;
+      max-width: 32rem;
+      margin-bottom: 1.3rem;
     }
 
     .btn-primary {
-      background: var(--accent); color: white;
-      padding: 0.7rem 1.4rem; border-radius: var(--radius-pill);
-      display: inline-block; font-weight: 500; box-shadow: var(--shadow-soft);
+      background: var(--accent);
+      color: white;
+      padding: 0.7rem 1.4rem;
+      border-radius: var(--radius-pill);
+      display: inline-block;
+      font-weight: 500;
+      box-shadow: var(--shadow-soft);
     }
+
     .btn-outline {
-      display: inline-block; margin-left: 0.6rem;
+      display: inline-block;
+      margin-left: 0.6rem;
       padding: 0.7rem 1.3rem;
-      border: 1px solid #cbd5e1; border-radius: var(--radius-pill);
-      color: var(--text-soft); background: white;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius-pill);
+      color: var(--text-soft);
+      background: white;
+      font-size: 0.9rem;
     }
 
     .hero-visual-card {
-      background: white; border-radius: 22px; padding: 1rem;
-      border: 1px solid var(--border-soft); box-shadow: var(--shadow-soft);
+      background: white;
+      border-radius: 22px;
+      padding: 1rem;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
     }
 
-    /* ---------- COURSES ---------- */
-    .section-header { margin-bottom: 1.4rem; }
-    .section-title { font-size: 1.4rem; margin-bottom: 0.2rem; }
-    .section-subtitle { color: var(--text-soft); font-size: 0.9rem; }
+    /* COURSES */
+    section {
+      padding: 2.3rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 1.4rem;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-soft);
+      font-size: 0.9rem;
+    }
 
     .course-grid {
-      display: grid; gap: 1.2rem;
+      display: grid;
+      gap: 1.2rem;
     }
-    @media(min-width: 780px) {
-      .course-grid { grid-template-columns: repeat(4, 1fr); }
+
+    @media (min-width: 780px) {
+      .course-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
     }
 
     .course-card {
-      background: var(--card-bg); border-radius: var(--radius-xl);
-      border: 1px solid var(--border-soft); box-shadow: var(--shadow-soft-sm);
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft-sm);
       padding: 1rem;
     }
 
-    .course-image { height: 120px; border-radius: 14px; overflow: hidden; }
-    .course-title { font-size: 1rem; margin: 0.6rem 0 0.2rem; }
-    .course-tagline { color: var(--text-soft); margin: 0; font-size: 0.85rem; }
-
-    /* ---------- PATH ---------- */
-    .path-strip { display: grid; gap: 1.2rem; margin-top: 1.6rem;}
-    @media(min-width: 900px){ .path-strip{grid-template-columns:1.4fr 1.6fr;} }
-    .path-box {
-      background: var(--card-bg); border-radius: var(--radius-xl);
-      padding: 1.2rem; border: 1px solid var(--border-soft);
-      box-shadow: var(--shadow-soft-sm);
+    .course-image {
+      height: 120px;
+      border-radius: 14px;
+      overflow: hidden;
     }
 
-    /* ---------- CAREER BOT EMBED ---------- */
-    iframe { border-radius: 14px; }
+    .course-title {
+      font-size: 1rem;
+      margin: 0.6rem 0 0.2rem;
+    }
 
-    /* ---------- CONTACT ---------- */
+    .course-tagline {
+      color: var(--text-soft);
+      margin: 0;
+      font-size: 0.85rem;
+    }
+
+    /* CAREER BOT */
+    iframe {
+      border-radius: 14px;
+      background: white;
+    }
+
+    /* CONTACT */
     .contact-inner {
-      background: var(--card-bg); padding: 1.4rem;
-      border-radius: 20px; border: 1px solid var(--border-soft);
+      background: var(--card-bg);
+      padding: 1.4rem;
+      border-radius: 20px;
+      border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft-sm);
-      display: grid; gap: 1rem;
+      display: grid;
+      gap: 1rem;
     }
-    @media(min-width: 768px){ .contact-inner{grid-template-columns:1.2fr 1fr;} }
 
-    /* ---------- FOOTER ---------- */
-    footer { text-align:center; padding:1.4rem 0; font-size:0.82rem; color:var(--text-soft); }
+    @media (min-width: 768px) {
+      .contact-inner {
+        grid-template-columns: 1.2fr 1fr;
+      }
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 1.4rem 0;
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
   </style>
 </head>
 
@@ -187,20 +266,20 @@
       <div class="container hero-grid">
         <div>
           <h1 class="hero-title">
-            Learn <span>AI, Cloud, Java & Python</span> with clarity.
+            Learn <span>AI, Cloud, Java &amp; Python</span> with clarity.
           </h1>
           <p class="hero-subtitle">
-            Short, modern and practical learning with your own chatbot assistant.
+            Modern, focused learning plus an AI career assistant powered by Hugging Face.
           </p>
 
-          <a href="courses.html" class="btn-primary">View Courses →</a>
-          <a href="#career-bot" class="btn-outline">Try Career Bot</a>
+          <a href="#courses" class="btn-primary">View Courses →</a>
+          <a href="#career-bot" class="btn-outline">Open Career Bot</a>
         </div>
 
         <div class="hero-visual-card">
-          <!-- Replace with your blended AI + Cloud + Programming image -->
+          <!-- Replace with your own blended AI+Cloud+Code image if you want -->
           <img src="https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&dpr=2&w=900"
-               alt="AI and Cloud blended illustration" />
+               alt="AI, cloud and programming illustration" />
         </div>
       </div>
     </section>
@@ -210,32 +289,40 @@
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Courses</h2>
-          <p class="section-subtitle">Pick your main learning focus.</p>
+          <p class="section-subtitle">Choose your main focus area.</p>
         </div>
 
         <div class="course-grid">
           <div class="course-card">
-            <div class="course-image"><img src="https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&dpr=2&w=600"></div>
-            <h3 class="course-title">AI & Machine Learning</h3>
-            <p class="course-tagline">Simple models → practical skills</p>
+            <div class="course-image">
+              <img src="https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&dpr=2&w=600" alt="AI course" />
+            </div>
+            <h3 class="course-title">AI &amp; Machine Learning</h3>
+            <p class="course-tagline">Build intuition and simple models.</p>
           </div>
 
           <div class="course-card">
-            <div class="course-image"><img src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&dpr=2&w=600"></div>
+            <div class="course-image">
+              <img src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&dpr=2&w=600" alt="Cloud course" />
+            </div>
             <h3 class="course-title">Google Cloud</h3>
-            <p class="course-tagline">Deploy real applications</p>
+            <p class="course-tagline">Deploy apps and services on GCP.</p>
           </div>
 
           <div class="course-card">
-            <div class="course-image"><img src="https://images.pexels.com/photos/574070/pexels-photo-574070.jpeg?auto=compress&dpr=2&w=600"></div>
+            <div class="course-image">
+              <img src="https://images.pexels.com/photos/574070/pexels-photo-574070.jpeg?auto=compress&dpr=2&w=600" alt="Java course" />
+            </div>
             <h3 class="course-title">Java Programming</h3>
-            <p class="course-tagline">Backend foundations</p>
+            <p class="course-tagline">Backend and core Java skills.</p>
           </div>
 
           <div class="course-card">
-            <div class="course-image"><img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&dpr=2&w=600"></div>
+            <div class="course-image">
+              <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&dpr=2&w=600" alt="Python course" />
+            </div>
             <h3 class="course-title">Python Essentials</h3>
-            <p class="course-tagline">Automation & data basics</p>
+            <p class="course-tagline">Automation &amp; data basics.</p>
           </div>
         </div>
       </div>
@@ -246,11 +333,13 @@
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Career Conversation Bot</h2>
-          <p class="section-subtitle">Ask the AI about my experience & your career path.</p>
+          <p class="section-subtitle">
+            Ask the AI about your career path, my experience and technology learning.
+          </p>
         </div>
 
         <iframe
-          src="https://huggingface.co/spaces/UmeshShukla/career_conversation?embed=true"
+          src="https://huggingface.co/spaces/UmeshShukla/career_conversation?embed=1"
           style="width: 100%; height: 520px; border: 0;"
           allow="clipboard-write; microphone"
           title="Career conversation chatbot"
@@ -264,9 +353,8 @@
         <div class="contact-inner">
           <div>
             <h2>Need help choosing a course?</h2>
-            <p>Message me anytime — I’ll guide you personally.</p>
+            <p>Share your background and goal. I’ll suggest the best starting point for you.</p>
           </div>
-
           <div>
             <p><strong>Email:</strong> <a href="mailto:umeshshukla.ai1@gmail.com">umeshshukla.ai1@gmail.com</a></p>
             <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/umesh-shukla-68258513" target="_blank">linkedin.com/in/umesh-shukla-68258513</a></p>
@@ -280,12 +368,13 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="container">© <span id="year"></span> Umesh Shukla. All rights reserved.</div>
+    <div class="container">
+      © <span id="year"></span> Umesh Shukla. All rights reserved.
+    </div>
   </footer>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
