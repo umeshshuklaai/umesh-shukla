@@ -20,4 +20,696 @@
       --text: #0F172A;
       --text-soft: #64748B;
       --border-soft: #D0D7E2;
-      --card-bg: #F3F4F6;         /* G*
+      --card-bg: #F3F4F6;         /* Grey cards */
+      --radius-xl: 18px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 14px 25px rgba(15, 23, 42, 0.08);
+      --shadow-soft-sm: 0 10px 18px rgba(15, 23, 42, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(12px);
+      background: rgba(232, 241, 255, 0.95);
+      border-bottom: 1px solid rgba(209, 213, 219, 0.8);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #2563EB, #16A34A);
+      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.4);
+    }
+
+    .brand-name {
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      color: #111827;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      font-size: 0.9rem;
+      color: var(--text-soft);
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      border-radius: var(--radius-pill);
+      transition: width 0.2s ease-out;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.4rem 0.9rem;
+        border-radius: var(--radius-pill);
+        font-size: 0.78rem;
+        border: 1px solid #CBD5F5;
+        color: #111827;
+        background: #E0EBFF;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links {
+        display: none;
+      }
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 2.8rem 0 2.2rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        padding: 3.6rem 0 3rem;
+      }
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    @media (min-width: 900px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 3fr) minmax(0, 2.6fr);
+        align-items: center;
+      }
+    }
+
+    .hero-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3.4vw, 2.7rem);
+      line-height: 1.15;
+      margin: 0 0 0.5rem;
+      color: #0F172A;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      margin: 0 0 1.2rem;
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      max-width: 30rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .btn-primary {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      border-radius: var(--radius-pill);
+      padding: 0.7rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: var(--accent);
+      color: #F9FAFB;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-outline {
+      border-radius: var(--radius-pill);
+      padding: 0.7rem 1.2rem;
+      font-size: 0.9rem;
+      border: 1px solid #CBD5F5;
+      background: #FFFFFF;
+      color: var(--text-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .hero-visual-card {
+      background: var(--bg-alt);
+      border-radius: 24px;
+      border: 1px solid var(--border-soft);
+      padding: 1.4rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .hero-visual-img {
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .hero-visual-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .hero-visual-text {
+      font-size: 0.85rem;
+      color: var(--text-soft);
+    }
+
+    .hero-visual-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+    }
+
+    .hero-tag {
+      padding: 0.15rem 0.6rem;
+      border-radius: var(--radius-pill);
+      background: #EFF6FF;
+      color: #1D4ED8;
+    }
+
+    /* SECTION BASE */
+
+    section {
+      padding: 2.3rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 1.4rem;
+    }
+
+    .section-kicker {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--text-soft);
+      margin-bottom: 0.35rem;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      margin: 0;
+      color: #0F172A;
+    }
+
+    .section-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-soft);
+      margin: 0.3rem 0 0;
+      max-width: 32rem;
+    }
+
+    /* COURSES */
+
+    .course-grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    @media (min-width: 768px) {
+      .course-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
+
+    .course-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 1rem 0.9rem 1rem;
+      box-shadow: var(--shadow-soft-sm);
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .course-image {
+      border-radius: 14px;
+      overflow: hidden;
+      background: #E5E7EB;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .course-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .course-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin: 0;
+      color: #111827;
+      text-align: left;
+    }
+
+    .course-tagline {
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    /* SIMPLE PATH / HIGHLIGHT */
+
+    .path-strip {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    @media (min-width: 900px) {
+      .path-strip {
+        grid-template-columns: 1.4fr 1.6fr;
+        align-items: center;
+      }
+    }
+
+    .path-box {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      padding: 1.1rem 1.1rem;
+      box-shadow: var(--shadow-soft-sm);
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    .path-box h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+      color: #111827;
+    }
+
+    .path-bullets {
+      margin: 0.4rem 0 0;
+      padding-left: 1.1rem;
+      font-size: 0.82rem;
+    }
+
+    .path-bullets li {
+      margin-bottom: 0.25rem;
+    }
+
+    .path-image {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 180px;
+      background: #E5E7EB;
+    }
+
+    .path-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* CONTACT */
+
+    .contact-inner {
+      background: var(--card-bg);
+      border-radius: 22px;
+      border: 1px solid var(--border-soft);
+      padding: 1.4rem 1.3rem;
+      display: grid;
+      gap: 1rem;
+      box-shadow: var(--shadow-soft-sm);
+    }
+
+    @media (min-width: 768px) {
+      .contact-inner {
+        grid-template-columns: 2fr 2fr;
+        align-items: center;
+      }
+    }
+
+    .contact-inner h2 {
+      margin: 0 0 0.4rem;
+      font-size: 1.15rem;
+      color: #111827;
+    }
+
+    .contact-inner p {
+      margin: 0;
+      font-size: 0.86rem;
+      color: var(--text-soft);
+    }
+
+    .contact-list-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-soft);
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-list {
+      font-size: 0.84rem;
+      display: grid;
+      gap: 0.3rem;
+      color: var(--text-soft);
+    }
+
+    .contact-list a {
+      color: var(--accent);
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 1.3rem 0 1.8rem;
+      font-size: 0.78rem;
+      color: var(--text-soft);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .footer-links a {
+      color: var(--text-soft);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="container nav">
+        <div class="brand">
+          <div class="brand-logo"></div>
+          <div class="brand-name">Umesh Shukla</div>
+        </div>
+        <nav class="nav-links">
+          <a href="#top">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="nav-cta">
+          <span>Let’s talk</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="hero-kicker">AI • Cloud • Programming</div>
+            <h1 class="hero-title">
+              Learn <span>AI, Google Cloud, Java &amp; Python</span> with clarity.
+            </h1>
+            <p class="hero-subtitle">
+              Short, focused courses and workshops by Umesh Shukla to build strong
+              foundations and real skills.
+            </p>
+            <div class="hero-actions">
+              <a href="courses.html" class="btn-primary">
+                View all courses →
+              </a>
+              <a href="#contact" class="btn-outline">
+                Ask which course suits me
+              </a>
+            </div>
+            <div class="hero-meta">
+              Live + self-paced friendly. Ideal for students & working professionals.
+            </div>
+          </div>
+
+          <div>
+            <div class="hero-visual-card">
+              <div class="hero-visual-img">
+                <!-- You can replace this with your own image URL -->
+                <img src="https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&dpr=2&w=800" alt="Learning and coding illustration" />
+              </div>
+              <div class="hero-visual-text">
+                Upgrade your skills in a structured and simple way – without information overload.
+              </div>
+              <div class="hero-visual-tags">
+                <span class="hero-tag">AI &amp; ML</span>
+                <span class="hero-tag">Google Cloud</span>
+                <span class="hero-tag">Java</span>
+                <span class="hero-tag">Python</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COURSES (LIGHT, SHORT TEXT) -->
+      <section id="courses">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Courses</div>
+            <h2 class="section-title">Pick your main focus area.</h2>
+            <p class="section-subtitle">
+              Each course is designed to be clear, beginner-friendly and practical.
+            </p>
+          </div>
+
+          <div class="course-grid">
+            <!-- AI -->
+            <article class="course-card">
+              <div class="course-image">
+                <img src="https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&dpr=2&w=600" alt="AI course" />
+              </div>
+              <h3 class="course-title">AI &amp; Machine Learning</h3>
+              <p class="course-tagline">Start your AI journey with simple models.</p>
+            </article>
+
+            <!-- Google Cloud -->
+            <article class="course-card">
+              <div class="course-image">
+                <img src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&dpr=2&w=600" alt="Cloud course" />
+              </div>
+              <h3 class="course-title">Google Cloud</h3>
+              <p class="course-tagline">Learn to deploy and manage apps on GCP.</p>
+            </article>
+
+            <!-- Java -->
+            <article class="course-card">
+              <div class="course-image">
+                <img src="https://images.pexels.com/photos/574070/pexels-photo-574070.jpeg?auto=compress&dpr=2&w=600" alt="Java course" />
+              </div>
+              <h3 class="course-title">Java Programming</h3>
+              <p class="course-tagline">Solid backend & core Java fundamentals.</p>
+            </article>
+
+            <!-- Python -->
+            <article class="course-card">
+              <div class="course-image">
+                <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&dpr=2&w=600" alt="Python course" />
+              </div>
+              <h3 class="course-title">Python Essentials</h3>
+              <p class="course-tagline">Python for automation, data and AI basics.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SIMPLE PATH / HIGHLIGHT -->
+      <section id="paths">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-kicker">Where to start?</div>
+            <h2 class="section-title">A simple learning path.</h2>
+            <p class="section-subtitle">
+              Unsure which course to choose? Follow this basic order.
+            </p>
+          </div>
+
+          <div class="path-strip">
+            <div class="path-box">
+              <h3>Recommended order</h3>
+              <ul class="path-bullets">
+                <li><strong>Step 1:</strong> Python or Java (pick one base language)</li>
+                <li><strong>Step 2:</strong> AI &amp; ML (if you like data & models)</li>
+                <li><strong>Step 3:</strong> Google Cloud (to deploy real projects)</li>
+              </ul>
+            </div>
+            <div class="path-image">
+              <img src="https://images.pexels.com/photos/1181670/pexels-photo-1181670.jpeg?auto=compress&dpr=2&w=800" alt="Learning path illustration" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="container">
+          <div class="contact-inner">
+            <div>
+              <h2>Need help choosing a course?</h2>
+              <p>
+                Share your background and goal. I’ll suggest the best starting point
+                for you.
+              </p>
+            </div>
+            <div>
+              <div class="contact-list-label">Contact</div>
+              <div class="contact-list">
+                <span>Email:
+                  <a href="mailto:umeshshukla.ai1@gmail.com">
+                    umeshshukla.ai1@gmail.com
+                  </a>
+                </span>
+                <span>GitHub:
+                  <a href="https://github.com/umeshshuklaai" target="_blank" rel="noopener">
+                    github.com/umeshshuklaai
+                  </a>
+                </span>
+                <span>LinkedIn:
+                  <a href="https://www.linkedin.com/in/umesh-shukla-68258513"
+                     target="_blank" rel="noopener">
+                    linkedin.com/in/umesh-shukla-68258513
+                  </a>
+                </span>
+                <span>WhatsApp:
+                  <a href="https://wa.me/918376053487" target="_blank" rel="noopener">
+                    +91&nbsp;83760&nbsp;53487
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="container footer-inner">
+        <div>© <span id="year"></span> Umesh Shukla. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#top">Back to top ↑</a>
+          <span>·</span>
+          <a href="courses.html">View detailed courses</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
