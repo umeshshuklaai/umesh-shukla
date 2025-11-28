@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Umesh Shukla | AI • Cloud • Programming</title>
-  <meta name="description" content="Learn AI, Google Cloud, Java and Python with Umesh Shukla. Courses, workshops and a career conversation chatbot." />
+  <meta name="description" content="Learn AI, Google Cloud, Java and Python with Umesh Shukla. Courses, upcoming batches and a course enquiry bot hosted on Hugging Face." />
 
   <style>
     :root {
@@ -154,7 +154,7 @@
       box-shadow: var(--shadow-soft);
     }
 
-    /* SECTIONS */
+    /* SECTIONS BASE */
     section {
       padding: 2.3rem 0;
     }
@@ -185,12 +185,24 @@
       }
     }
 
+    .course-card-link {
+      text-decoration: none;
+      color: inherit;
+    }
+
     .course-card {
       background: var(--card-bg);
       border-radius: var(--radius-xl);
       border: 1px solid var(--border-soft);
       box-shadow: var(--shadow-soft-sm);
       padding: 1rem;
+      transition: transform 0.12s ease-out, box-shadow 0.12s ease-out;
+      cursor: pointer;
+    }
+
+    .course-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 26px rgba(15, 23, 42, 0.12);
     }
 
     .course-image {
@@ -210,7 +222,58 @@
       font-size: 0.85rem;
     }
 
-    /* CAREER BOT CARD (NO IFRAME) */
+    /* UPCOMING BATCHES */
+    .batches-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft-sm);
+      padding: 1.2rem;
+      overflow-x: auto;
+    }
+
+    .batch-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      min-width: 480px;
+    }
+
+    .batch-table th,
+    .batch-table td {
+      padding: 0.55rem 0.6rem;
+      border-bottom: 1px solid #d1d5db;
+      text-align: left;
+      white-space: nowrap;
+    }
+
+    .batch-table thead {
+      background: #E5EDFF;
+    }
+
+    .status-pill {
+      display: inline-block;
+      padding: 0.12rem 0.55rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+    }
+
+    .status-open {
+      background: #DCFCE7;
+      color: #166534;
+    }
+
+    .status-wait {
+      background: #FEF3C7;
+      color: #92400E;
+    }
+
+    .status-upcoming {
+      background: #DBEAFE;
+      color: #1D4ED8;
+    }
+
+    /* CAREER BOT CARD (HIDDEN INITIALLY) */
     .career-card {
       background: var(--card-bg);
       border-radius: var(--radius-xl);
@@ -290,7 +353,8 @@
       <nav class="nav-links">
         <a href="#top">Home</a>
         <a href="#courses">Courses</a>
-        <a href="#career-bot">About my career Bot</a>
+        <a href="#upcoming">Upcoming</a>
+        <a href="#career-bot">Course Bot</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -306,15 +370,17 @@
             Learn <span>AI, Cloud, Java &amp; Python</span> with clarity.
           </h1>
           <p class="hero-subtitle">
-            Modern, focused learning plus your own AI career assistant hosted on Hugging Face.
+            Modern, focused courses and an AI bot to help you enquire about the right course.
           </p>
 
           <a href="#courses" class="btn-primary">View Courses →</a>
-          <a href="#career-bot" class="btn-outline">Open Career Bot</a>
+          <a href="#career-bot" class="btn-outline js-show-bot">
+            Enquire about courses bot
+          </a>
         </div>
 
         <div class="hero-visual-card">
-          <!-- Replace this with your blended AI+Cloud+Programming hero image -->
+          <!-- Replace with your blended AI+Cloud+Programming hero image -->
           <img src="https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&dpr=2&w=900"
                alt="AI, cloud and programming illustration" />
         </div>
@@ -326,67 +392,133 @@
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Courses</h2>
-          <p class="section-subtitle">Choose your primary focus.</p>
+          <p class="section-subtitle">Click on a course to view full details on courses.html.</p>
         </div>
 
         <div class="course-grid">
-          <div class="course-card">
-            <div class="course-image">
-              <img src="https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&dpr=2&w=600" alt="AI course" />
+          <!-- AI & ML -->
+          <a href="courses.html#ai-course" class="course-card-link">
+            <div class="course-card">
+              <div class="course-image">
+                <img src="https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&dpr=2&w=600" alt="AI course" />
+              </div>
+              <h3 class="course-title">AI &amp; Machine Learning</h3>
+              <p class="course-tagline">Start with core AI concepts.</p>
             </div>
-            <h3 class="course-title">AI &amp; Machine Learning</h3>
-            <p class="course-tagline">Start with core AI concepts.</p>
-          </div>
+          </a>
 
-          <div class="course-card">
-            <div class="course-image">
-              <img src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&dpr=2&w=600" alt="Cloud course" />
+          <!-- Google Cloud -->
+          <a href="courses.html#gcp-course" class="course-card-link">
+            <div class="course-card">
+              <div class="course-image">
+                <img src="https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&dpr=2&w=600" alt="Cloud course" />
+              </div>
+              <h3 class="course-title">Google Cloud</h3>
+              <p class="course-tagline">Learn to deploy apps on GCP.</p>
             </div>
-            <h3 class="course-title">Google Cloud</h3>
-            <p class="course-tagline">Learn to deploy apps on GCP.</p>
-          </div>
+          </a>
 
-          <div class="course-card">
-            <div class="course-image">
-              <img src="https://images.pexels.com/photos/574070/pexels-photo-574070.jpeg?auto=compress&dpr=2&w=600" alt="Java course" />
+          <!-- Java -->
+          <a href="courses.html#java-course" class="course-card-link">
+            <div class="course-card">
+              <div class="course-image">
+                <img src="https://images.pexels.com/photos/574070/pexels-photo-574070.jpeg?auto=compress&dpr=2&w=600" alt="Java course" />
+              </div>
+              <h3 class="course-title">Java Programming</h3>
+              <p class="course-tagline">Backend and Java foundations.</p>
             </div>
-            <h3 class="course-title">Java Programming</h3>
-            <p class="course-tagline">Backend and Java foundations.</p>
-          </div>
+          </a>
 
-          <div class="course-card">
-            <div class="course-image">
-              <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&dpr=2&w=600" alt="Python course" />
+          <!-- Python -->
+          <a href="courses.html#python-course" class="course-card-link">
+            <div class="course-card">
+              <div class="course-image">
+                <img src="https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&dpr=2&w=600" alt="Python course" />
+              </div>
+              <h3 class="course-title">Python Essentials</h3>
+              <p class="course-tagline">Automation &amp; data basics.</p>
             </div>
-            <h3 class="course-title">Python Essentials</h3>
-            <p class="course-tagline">Automation &amp; data basics.</p>
-          </div>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- CAREER BOT (LINK ONLY) -->
-    <section id="career-bot">
+    <!-- UPCOMING BATCHES ON INDEX -->
+    <section id="upcoming">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Career Conversation Bot</h2>
+          <h2 class="section-title">Upcoming Batches</h2>
+          <p class="section-subtitle">
+            Current planned batches. You can still request custom timings.
+          </p>
+        </div>
+
+        <div class="batches-card">
+          <table class="batch-table">
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Start Date</th>
+                <th>Days &amp; Time (IST)</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>AI Foundations &amp; ML</td>
+                <td>Jan 10, 2026</td>
+                <td>Sat–Sun, 7–9 PM</td>
+                <td><span class="status-pill status-upcoming">Upcoming</span></td>
+              </tr>
+              <tr>
+                <td>Google Cloud Engineer Path</td>
+                <td>Jan 18, 2026</td>
+                <td>Tue–Thu, 8–9:30 PM</td>
+                <td><span class="status-pill status-open">Seats Open</span></td>
+              </tr>
+              <tr>
+                <td>Modern Java Backend</td>
+                <td>Feb 01, 2026</td>
+                <td>Sat–Sun, 10 AM–12 PM</td>
+                <td><span class="status-pill status-wait">Waitlist</span></td>
+              </tr>
+              <tr>
+                <td>Python for Automation</td>
+                <td>Feb 08, 2026</td>
+                <td>Mon–Wed, 7–8:30 PM</td>
+                <td><span class="status-pill status-open">Seats Open</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREER BOT (HIDDEN UNTIL CLICK) -->
+    <section id="career-bot" style="display: none;">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Enquire about Courses Bot</h2>
+          <p class="section-subtitle">
+            Hosted on Hugging Face. Opens in a new tab to chat about courses and your background.
+          </p>
         </div>
 
         <div class="career-card">
           <span class="career-badge">Hugging Face Space</span>
-          <h3 class="career-title-small">Ask questions about career &amp; tech path</h3>
+          <h3 class="career-title-small">Ask which course is right for you</h3>
           <p class="career-text">
-            This bot is hosted on Hugging Face Spaces. Click the button below to open it
-            and chat about your profile, skills and career direction.
+            This bot is designed to answer questions about AI, Cloud, Java and Python courses,
+            along with basic career direction guidance.
           </p>
 
           <a
             class="btn-career"
-            href="https://huggingface.co/spaces/UmeshShukla/career_conversatoion"
+            href="https://huggingface.co/spaces/UmeshShukla/career_conversation"
             target="_blank"
             rel="noopener"
           >
-            Open Career Bot on Hugging Face →
+            Enquire about courses bot →
           </a>
         </div>
       </div>
@@ -419,7 +551,22 @@
   </footer>
 
   <script>
+    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Show career bot section only when user clicks
+    const botSection = document.getElementById("career-bot");
+    const botTriggers = document.querySelectorAll(".js-show-bot");
+
+    botTriggers.forEach(btn => {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        if (botSection.style.display === "none" || botSection.style.display === "") {
+          botSection.style.display = "block";
+        }
+        botSection.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
   </script>
 </body>
 </html>
